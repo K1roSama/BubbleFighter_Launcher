@@ -1,0 +1,14 @@
+@import "tailwindcss" source(none);
+@source "./index.html";
+@source "./renderer.js";
+
+@theme inline {
+  --color-brand-from: var(--brand-blue-from);
+  --color-brand-to: var(--brand-blue-to);
+  --color-warm-from: var(--brand-yellow-from);
+  --color-warm-to: var(--brand-yellow-to);
+}
+
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+}

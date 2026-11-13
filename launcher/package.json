@@ -1,0 +1,25 @@
+{
+  "name": "bubblefighter-launcher",
+  "version": "1.2.1",
+  "description": "BubbleFighter online desktop launcher",
+  "main": "main.js",
+  "private": true,
+  "license": "MIT",
+  "repository": "github:K1roSama/BubbleFighter_Launcher",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "scripts": {
+    "start": "npm run build:css && electron .",
+    "dev": "node dev.js",
+    "build:css": "tailwindcss -i ./tailwind.css -o ./dist-css/app.css --minify",
+    "build:native": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File native/build.ps1",
+    "package": "npm run build:css && npm run build:native && electron-packager . BubbleFighterLauncher --platform=win32 --arch=x64 --out=dist --overwrite --asar.unpack=**/*.exe --ignore=\"^/(dist|node_modules)($|/)\" --ignore=\"^/tests?($|/)\" --ignore=\"^/dev(-.*)?[.]js$\" --ignore=\"^/settings\" --ignore=\"^/(package-lock[.]json|tailwind[.]css)$\" --ignore=\"[.](cs|ps1)$\""
+  },
+  "devDependencies": {
+    "@electron/packager": "20.3.0",
+    "@tailwindcss/cli": "4.3.3",
+    "electron": "44.11.3",
+    "tailwindcss": "4.3.3"
+  }
+}
